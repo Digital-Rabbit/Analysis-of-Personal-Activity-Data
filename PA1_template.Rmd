@@ -1,6 +1,22 @@
 # Reproducible Research: Peer Assessment 1
-```{r echo=FALSE,results="hide"}
-```
+
+Fitbit, Nike Fuelband, Jawbone Up, and other devices are popular with people who want to monitor their personal activity level for one reason or another. 
+Although lots of data are collected, these data are not used much due to a lack
+of statistical methods and software for processing and interpreting the data. 
+
+## About the data
+This assignment analyzes data from the personal activity monitoring  of an 
+anonymous individual. The data represents step activitly collected at 5 minute intervals throughout the day during October and November, 2012.
+
+## Data variables
+The variables in the dataset ar:
+* steps: Number of steps taking in a 5-minute interval (missing values are 
+coded as NA)e
+* date: The date on which the measurement was taken, in YYYY-MM-DD format
+* interval: Identifier for the 5-minute interval in which measurement was taken
+
+The dataset is stored in a comma-separated-value (CSV) file—activity.csv. There
+are a total of 17,568 observations.
 
 ## Loading and preprocessing the data
 Make sure you set the working directlry correctly. After downloading the data.
@@ -9,7 +25,7 @@ read it into R.
 activity <- read.csv("activity.csv",header=TRUE,sep=",", colClasses = "character")
 ```
 Process and transform the data into a format suitable for analysis. For this 
-part, remove the NA values. Then, change the interval and step data  numeric,
+part, remove the NA values. Then, change the interval and step data to numeric,
 and the date data to the Date class.
 ```{r}
 cleanAct <- na.omit(activity)
@@ -34,7 +50,7 @@ make a histogram of the total number of steps taken each day.
 library("ggplot2", lib.loc="/Library/Frameworks/R.framework/Versions/3.0/Resources/library")
 
 qplot(dayOfWeek,data=cleanAct, geom="bar", weight=steps, 
-         ylab = "Steps",xlab="Day of Week")
+      ylab = "Steps",xlab="Day of Week")
 ```
 
 To calculate the mean and median total number of steps taken per day, load the plyr package and use ddply.
@@ -80,7 +96,7 @@ filledAct <- activity
 filledAct$steps[is.na(filledAct$steps)]<-meanSteps
 ```
 
-Create a new dataset with the filled in data in it. These are all the same
+Create a new dataset with the filled-in data in it. These are all the same
 steps used to answer previous questions, but using the filleAct dataset.
 ```{r}
 filledAct$interval <- as.numeric(filledAct$interval)
