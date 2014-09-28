@@ -1,4 +1,4 @@
-# Reproducible Research: Peer Assessment 1
+# Analysis of Personal Activity Data
 
 Fitbit, Nike Fuelband, Jawbone Up, and other devices are popular with people who want to monitor their personal activity level for one reason or another. 
 Although lots of data are collected, these data are not used much due to a lack
